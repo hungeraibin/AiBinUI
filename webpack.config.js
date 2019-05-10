@@ -11,6 +11,9 @@ module.exports = {
     library: 'AiBinUI',
     libraryTarget: 'umd',
   },
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js', '.jsx'],
+  },
   module: {
     rules: [
       {
