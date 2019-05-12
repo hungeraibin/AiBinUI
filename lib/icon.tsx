@@ -1,6 +1,5 @@
 import React from 'react';
-import './icons/wechat.svg';
-import './icons/alipay.svg';
+import './importIcons';
 
 interface IconProps {
   name: string;
