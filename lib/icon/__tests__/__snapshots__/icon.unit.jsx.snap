@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Icon xxx 1`] = `
+<svg
+  className="ab-icon"
+>
+  <use
+    xlinkHref="#alipay"
+  />
+</svg>
+`;
