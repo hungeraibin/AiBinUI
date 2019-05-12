@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Icon xxx 1`] = `
+exports[`Icon render successfully 1`] = `
 <svg
   className="ab-icon"
 >
