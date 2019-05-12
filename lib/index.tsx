@@ -7,6 +7,6 @@ const fn: React.MouseEventHandler = (e) => {
 }
 
 ReactDOM.render(<div>
-  <Icon name="wechat" onClick={fn}/>
+  <Icon name="wechat" onClick={fn} className="father"/>
   <Icon name="alipay" onClick={fn}/>
 </div>, document.getElementById('root'));
