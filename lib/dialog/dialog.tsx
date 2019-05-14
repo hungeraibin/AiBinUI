@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import './dialog.scss';
-import Icon from '../icon/icon';
+import { Icon } from '../index';
 import { scopedClassMarker } from '../classes';
 
 interface Props {
