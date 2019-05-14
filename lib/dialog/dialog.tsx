@@ -1,27 +1,31 @@
 import React, { Fragment } from 'react';
 import './dialog.scss';
 import Icon from '../icon/icon';
+import { scopedClassMarker } from '../classes';
 
 interface Props {
   visible: boolean;
 }
 
+const scopedClass = scopedClassMarker('ab-dialog');
+const sc = scopedClass;
+
 const Dialog: React.FunctionComponent<Props> = (props) => {
   return (
     props.visible ?
       <Fragment>
-        <div className="ab-dialog-mask"></div>
-        <div className="ab-dialog">
-          <div className="ab-dialog-close">
+        <div className={sc('mask')}></div>
+        <div className={sc('')}>
+          <div className={sc('close')}>
             <Icon name="close"></Icon>
           </div>
-          <header className="ab-dialog-header">
+          <header className={sc('header')}>
             提示
           </header>
-          <main className="ab-dialog-main">
+          <main className={sc('main')}>
             {props.children}
           </main>
-          <footer className="ab-dialog-footer">
+          <footer className={sc('footer')}>
             <button>ok</button>
             <button>cancel</button>
           </footer>
