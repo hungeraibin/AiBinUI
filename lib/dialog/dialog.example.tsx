@@ -6,7 +6,9 @@ export default function() {
   return (
     <div>
       <button onClick={() => setVisible(!visible)}>CLICK</button>
-      <Dialog visible={visible}></Dialog>
+      <Dialog visible={visible}>
+        <strong>hello world</strong>
+      </Dialog>
     </div>
   );
 };

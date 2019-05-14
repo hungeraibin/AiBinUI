@@ -7,7 +7,7 @@ interface Props {
 const Dialog: React.FunctionComponent<Props> = (props) => {
   return (
     props.visible ?
-      <div>Dialog</div> :
+      <div>{props.children}</div> :
       null
   );
 };
