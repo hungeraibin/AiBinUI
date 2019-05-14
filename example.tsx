@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
-import ButtonExample from './lib/button.example';
+import ButtonExample from './lib/button/button.example';
 import IconExample from './lib/icon/icon.example';
 
 ReactDOM.render(
