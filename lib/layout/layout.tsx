@@ -1,9 +1,8 @@
 import React from 'react';
 import { scopedClassMarker } from '../classes';
+import './layout.scss';
 
-interface Props extends React.HTMLAttributes<HTMLElement> {
-
-}
+interface Props extends React.HTMLAttributes<HTMLElement> {}
 
 const sc = scopedClassMarker('ab-layout');
 const Layout: React.FunctionComponent<Props> = (props) => {
