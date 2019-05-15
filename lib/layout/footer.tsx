@@ -1,8 +1,12 @@
 import React from 'react';
+import { scopedClassMarker } from '../classes';
 
-const Footer: React.FunctionComponent = () => {
+const sc = scopedClassMarker('ab-layout');
+const Footer: React.FunctionComponent = (props) => {
   return (
-    <div></div>
+    <div className={sc('footer')}>
+      {props.children}
+    </div>
   );
 };
 

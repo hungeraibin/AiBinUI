@@ -1,8 +1,17 @@
 import React from 'react';
+import { scopedClassMarker } from '../classes';
 
-const Layout: React.FunctionComponent = () => {
+interface Props extends React.HTMLAttributes<HTMLElement> {
+
+}
+
+const sc = scopedClassMarker('ab-layout');
+const Layout: React.FunctionComponent<Props> = (props) => {
+  const { className, ...rest } = props;
   return (
-    <div></div>
+    <div className={[sc(''), className].join(' ')} {...rest}>
+      {props.children}
+    </div>
   );
 };
 
