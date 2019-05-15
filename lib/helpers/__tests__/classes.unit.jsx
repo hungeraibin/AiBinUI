@@ -1,4 +1,4 @@
-import classes from '../classes';
+import classes, { scopedClassMarker } from '../classes';
 
 describe('classes', () => {
   it('接受 1个 className', () => {
@@ -21,4 +21,15 @@ describe('classes', () => {
     const result = classes('a', undefined);
     expect(result).toEqual('a');
   });    
+});
+
+describe('scopedClassMarker', () => {
+  it('接收字符串或对象', () => {
+    const sc = scopedClassMarker('ab-layout');
+    expect(sc('')).toEqual('ab-layout');
+    expect(sc('x')).toEqual('ab-layout-x');
+    expect(sc({y: true, z: false})).toEqual('ab-layout-y');
+    expect(sc({y: true, z: true})).toEqual('ab-layout-y ab-layout-z');
+    expect(sc({y: true, z: true}, {extra: 'red'})).toEqual('ab-layout-y ab-layout-z red');
+  });
 });
