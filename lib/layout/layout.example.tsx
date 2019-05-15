@@ -10,7 +10,7 @@ export default function() {
     <div>
       <div>
         <h1>exmaple1</h1>
-        <Layout>
+        <Layout className="hello">
           <Header>Header</Header>
           <Content>Content</Content> 
           <Footer>Footer</Footer>
