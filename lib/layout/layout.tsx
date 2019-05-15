@@ -10,15 +10,9 @@ interface Props extends React.HTMLAttributes<HTMLElement> {
 const sc = scopedClassMarker('ab-layout');
 const Layout: React.FunctionComponent<Props> = (props) => {
   const { className, ...rest } = props;
-  const children = (props.children as Array<ReactElement>)
-  let hasAside = false;
-  if (children.length) {
-    children.map(node => {
-      if(node.type === Aside) {
-        hasAside = true;
-      }
-    })
-  }
+  const children = props.children as Array<ReactElement>
+  const hasAside = children.length && 
+    children.reduce((result, node) => result || node.type === Aside, false);
 
   return (
     <div className={sc('', {extra: [className, hasAside && 'hasAside'].join(' ')})} {...rest}>
