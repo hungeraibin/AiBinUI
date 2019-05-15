@@ -7,6 +7,7 @@ interface Props {
   visible: boolean;
   buttons: Array<ReactElement>;
   onClose: React.MouseEventHandler;
+  closeOnClickMask?: boolean;
 }
 
 const scopedClass = scopedClassMarker('ab-dialog');
@@ -16,10 +17,15 @@ const Dialog: React.FunctionComponent<Props> = (props) => {
   const onClickClose: React.MouseEventHandler = (e) => {
     props.onClose(e);
   }
+  const onClickMask: React.MouseEventHandler = (e) => {
+    if (props.closeOnClickMask) {
+      props.onClose(e);
+    }
+  }
   return (
     props.visible ?
       <Fragment>
-        <div className={sc('mask')} onClick={onClickClose}></div>
+        <div className={sc('mask')} onClick={onClickMask}></div>
         <div className={sc('')}>
           <div className={sc('close')} onClick={onClickClose}>
             <Icon name="close"></Icon>
@@ -41,5 +47,9 @@ const Dialog: React.FunctionComponent<Props> = (props) => {
       null
   );
 };
+
+Dialog.defaultProps = {
+  closeOnClickMask: false,
+}
 
 export default Dialog;
