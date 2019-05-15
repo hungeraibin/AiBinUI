@@ -1,4 +1,5 @@
 import React, { Fragment, ReactElement } from 'react';
+import ReactDOM from 'react-dom'; 
 import './dialog.scss';
 import { Icon } from '../index';
 import { scopedClassMarker } from '../classes';
@@ -22,8 +23,7 @@ const Dialog: React.FunctionComponent<Props> = (props) => {
       props.onClose(e);
     }
   }
-  return (
-    props.visible ?
+  const component = props.visible ?
       <Fragment>
         <div className={sc('mask')} onClick={onClickMask}></div>
         <div className={sc('')}>
@@ -45,6 +45,8 @@ const Dialog: React.FunctionComponent<Props> = (props) => {
       </Fragment>
       :
       null
+  return (
+    ReactDOM.createPortal(component, document.body)
   );
 };
 
