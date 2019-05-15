@@ -29,6 +29,19 @@ export default function() {
           <Footer>Footer</Footer>
         </Layout>
       </div>
+
+      <div>
+        <h1>exmaple3</h1>
+        <Layout className="hello" style={{height: 300}}>
+          <Aside>Aside</Aside>
+          <Layout>
+            <Header>Header</Header>
+            <Content>Content</Content> 
+            <Footer>Footer</Footer>
+          </Layout>
+        </Layout>
+      </div>
+
     </div>
   );
 };

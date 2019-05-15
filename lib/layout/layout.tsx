@@ -1,14 +1,27 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { scopedClassMarker } from '../classes';
 import './layout.scss';
+import Aside from './aside';
 
-interface Props extends React.HTMLAttributes<HTMLElement> {}
+interface Props extends React.HTMLAttributes<HTMLElement> {
+  children: ReactElement | Array<ReactElement>;
+}
 
 const sc = scopedClassMarker('ab-layout');
 const Layout: React.FunctionComponent<Props> = (props) => {
   const { className, ...rest } = props;
+  const children = (props.children as Array<ReactElement>)
+  let hasAside = false;
+  if (children.length) {
+    children.map(node => {
+      if(node.type === Aside) {
+        hasAside = true;
+      }
+    })
+  }
+
   return (
-    <div className={sc('', {extra: className})} {...rest}>
+    <div className={sc('', {extra: [className, hasAside && 'hasAside'].join(' ')})} {...rest}>
       {props.children}
     </div>
   );
