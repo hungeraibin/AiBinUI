@@ -1,6 +1,7 @@
 # production dist
 dist/
 test-results/
+doc/
 
 # Logs
 logs
