@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { HashRouter as Router, Route, NavLink } from 'react-router-dom';
-import ButtonExample from './lib/button/button.example';
-import IconExample from './lib/icon/icon.example';
+import IconDemo from './lib/icon/icon.demo';
 import DialogExample from './lib/dialog/dialog.example';
 import LayoutExample from './lib/layout/layout.example';
 import { Layout, Header, Footer, Content, Aside } from './lib/layout/layout';
@@ -35,8 +34,7 @@ ReactDOM.render(
           </ul>
         </Aside>
         <Content className="site-main">
-          <Route path="/Icon" component={IconExample}></Route>
-          <Route path="/Button" component={ButtonExample}></Route>
+          <Route path="/Icon" component={IconDemo}></Route>
           <Route path="/Dialog" component={DialogExample}></Route>
           <Route path="/Layout" component={LayoutExample}></Route>
         </Content>

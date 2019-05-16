@@ -12,6 +12,7 @@ body {
 }
 .site-page {
   background: #ffffff;
+  min-height: 100vh;
 }
 .site-main {
   padding-top: 16px;
@@ -61,4 +62,7 @@ body {
   color: #666;
   padding: 16px 0;
   border-top: 1px solid $border-color;
+}
+.example {
+  padding: 16px 0;
 }
