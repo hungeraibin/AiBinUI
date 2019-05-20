@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { HashRouter as Router, Route, NavLink } from 'react-router-dom';
 import IconDemo from './lib/icon/icon.demo';
+import FormExample from './lib/form/form.example';
 import DialogExample from './lib/dialog/dialog.example';
 import LayoutExample from './lib/layout/layout.example';
 import { Layout, Header, Footer, Content, Aside } from './lib/layout/layout';
@@ -30,13 +31,17 @@ ReactDOM.render(
             </li>
             <li>
               <NavLink to="/Layout">Layout</NavLink>
-            </li>            
+            </li>
+            <li>
+              <NavLink to="/Form">Form</NavLink>
+            </li>          
           </ul>
         </Aside>
         <Content className="site-main">
           <Route path="/Icon" component={IconDemo}></Route>
           <Route path="/Dialog" component={DialogExample}></Route>
           <Route path="/Layout" component={LayoutExample}></Route>
+          <Route path="/Form" component={FormExample}></Route>
         </Content>
       </Layout>
       <Footer className="site-footer">
