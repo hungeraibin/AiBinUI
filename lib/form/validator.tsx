@@ -29,16 +29,16 @@ const Validator = (formValue: FormValue, rules: FormRules): FormErrors => {
   rules.map(rule => {
     const value = formValue[rule.key];
     if (rule.required && isEmpty(value)) {
-      errors[rule.key] = ['必填'];
+      errors[rule.key] = ['required'];
     }
     if (rule.minLength && !isEmpty(value) && value.length < rule.minLength) {
-      addError(rule.key, '太短');
+      addError(rule.key, 'minLength');
     }
     if (rule.maxLength && !isEmpty(value) && value.length > rule.maxLength) {
-      addError(rule.key, '太长');
+      addError(rule.key, 'maxLength');
     }
     if (rule.pattern && !rule.pattern.test(value)) {
-      addError(rule.key, '格式不正确');
+      addError(rule.key, 'pattern');
     }
   });
   return errors;

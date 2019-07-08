@@ -13,16 +13,39 @@ const FormExample: React.FunctionComponent = () => {
     {name: 'password', label: '密码', input: { type: 'password' }},
   ]);
   const [errors, setErrors] = useState({});
+  const validator = (username: string) => {
+    return new Promise<void>((resolve, reject) => {
+      const usernames = ['jack', 'aibin'];
+      setTimeout(() => {
+        if (usernames.indexOf(username) >= 0) {
+          reject('unique');
+        } else {
+          resolve();
+        }
+      }, 2000);
+    })
+  }
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     const rules = [
       {key: 'username', required: true},
       {key: 'username', minLength: 8, maxLength: 16},
       {key: 'username', pattern: /^[A-Za-z0-9]+$/},
+      {key: 'username', validator},
       {key: 'password', required: true},
+      {key: 'password', validator},
     ]
     const errors = Validator(formData, rules);
     console.log(errors);
     setErrors(errors);
+  }
+  const transformError = (message: string) => {
+    const map: any = {
+      unique: 'username is taken',
+      required: 'required',
+      minLength: 'minLength',
+      maxLength: 'maxLength'
+    }
+    return map[message];
   }
   return (
     <Form 
@@ -35,6 +58,7 @@ const FormExample: React.FunctionComponent = () => {
         </Fragment>
       }
       errors={errors}
+      transformError={transformError}
       onChange={(newValue)=>setFormData(newValue)}
       onSubmit={onSubmit}
     />
