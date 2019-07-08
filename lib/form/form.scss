@@ -1,7 +1,14 @@
 .ab-form {
+  &-table {
+    border-collapse: collapse;
+  }
+  &-label {
+    line-height: 32px;
+  }
   &-td {
+    vertical-align: top;
     padding-top: 0;
-    padding-bottom: 32px;
+    padding-bottom: 8px;
   }
   &-tr:last-child &-td {
     padding-bottom: 0;
@@ -9,4 +16,9 @@
   &-td + &-td {
     padding-left: 16px;
   }
-} 
+  &-error {
+    color: red;
+    margin-top: 4px;
+    font-size: 0.8em;
+  }
+}
