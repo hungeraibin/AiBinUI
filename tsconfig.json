@@ -23,7 +23,8 @@
     "noUnusedLocals": true
   },
   "include": [
-
+    "lib/types/custom.d.ts",
+    "lib/**/*"
   ],
   "exclude": [
     "node_modules",
@@ -36,4 +37,4 @@
     "src/setupTests.ts",
     "*.js"
   ]
-} 
+}
