@@ -34,9 +34,9 @@ const FormExample: React.FunctionComponent = () => {
       {key: 'password', required: true},
       {key: 'password', validator},
     ]
-    const errors = Validator(formData, rules);
-    console.log(errors);
-    setErrors(errors);
+    Validator(formData, rules, (errors) => {
+      setErrors(errors);
+    });
   }
   const transformError = (message: string) => {
     const map: any = {
