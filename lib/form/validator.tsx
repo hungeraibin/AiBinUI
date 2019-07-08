@@ -6,10 +6,10 @@ interface FormRule {
   minLength?: number;
   maxLength?: number;
   pattern?: RegExp;
-  validator?: (value: string) => Promise<string>
+  validator?: (value: string) => Promise<string>;
 }
 
-type FormRules = Array<FormRule>
+export type FormRules = Array<FormRule>
 
 function isEmpty(value: any) {
   return value === undefined || value === null || value === '';
@@ -50,11 +50,11 @@ const Validator = (formValue: FormValue, rules: FormRules, callback: (errors: an
       }
     }
   });
-  const flattenErrors = flat(Object.keys(errors).map(key => errors[key].map(promise => [key, promise])));
+  const flattenErrors = flat(Object.keys(errors).map(key => errors[key].map((promise: OneError) => [key, promise])));
   const newPromises = flattenErrors.map(([key, promiseOrString]) => (
     promiseOrString instanceof Promise ? promiseOrString : Promise.reject(promiseOrString))
     .then(() => [key, undefined], (reason) => [key, reason]));
-  Promise.all(newPromises).then(results => {
+  Promise.all(newPromises).then((results: Array<[string, string]>) => {
     callback(zip(results.filter(item => item[1])));
   });
 };
@@ -73,7 +73,7 @@ function flat(array: Array<any>) {
 }
 
 function zip(kvList: Array<[string, string]>) {
-  const result = {};
+  const result: FormValue = {};
   kvList.map(([key, value]) => {
     result[key] = result[key] || [];
     result[key].push(value);

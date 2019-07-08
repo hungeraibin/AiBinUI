@@ -1,6 +1,6 @@
 import React, { useState, Fragment } from 'react';
 import Form, { FormValue }  from './form';
-import Validator from './validator';
+import Validator, { FormRules } from './validator';
 import Button from '../button/button';
 
 const FormExample: React.FunctionComponent = () => {
@@ -14,7 +14,7 @@ const FormExample: React.FunctionComponent = () => {
   ]);
   const [errors, setErrors] = useState({});
   const validator = (username: string) => {
-    return new Promise<void>((resolve, reject) => {
+    return new Promise<string>((resolve, reject) => {
       const usernames = ['jack', 'aibin'];
       setTimeout(() => {
         if (usernames.indexOf(username) >= 0) {
@@ -26,7 +26,7 @@ const FormExample: React.FunctionComponent = () => {
     })
   }
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    const rules = [
+    const rules: FormRules  = [
       {key: 'username', required: true},
       {key: 'username', minLength: 8, maxLength: 16},
       {key: 'username', pattern: /^[A-Za-z0-9]+$/},
@@ -34,7 +34,7 @@ const FormExample: React.FunctionComponent = () => {
       {key: 'password', required: true},
       {key: 'password', validator},
     ]
-    Validator(formData, rules, (errors) => {
+    Validator(formData, rules , (errors: FormValue) => {
       setErrors(errors);
     });
   }
