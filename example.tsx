@@ -5,6 +5,7 @@ import IconDemo from './lib/icon/icon.demo';
 import FormExample from './lib/form/form.example';
 import DialogExample from './lib/dialog/dialog.example';
 import LayoutExample from './lib/layout/layout.example';
+import ScrollExample from './lib/scroll/scroll.example';
 import { Layout, Header, Footer, Content, Aside } from './lib/layout/layout';
 import './example.scss';
 
@@ -34,7 +35,10 @@ ReactDOM.render(
             </li>
             <li>
               <NavLink to="/Form">Form</NavLink>
-            </li>          
+            </li>
+            <li>
+              <NavLink to="/Scroll">Scroll</NavLink>
+            </li>            
           </ul>
         </Aside>
         <Content className="site-main">
@@ -42,6 +46,7 @@ ReactDOM.render(
           <Route path="/Dialog" component={DialogExample}></Route>
           <Route path="/Layout" component={LayoutExample}></Route>
           <Route path="/Form" component={FormExample}></Route>
+          <Route path="/Scroll" component={ScrollExample}></Route>
         </Content>
       </Layout>
       <Footer className="site-footer">
