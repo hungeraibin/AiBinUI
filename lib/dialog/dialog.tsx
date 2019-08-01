@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './dialog.scss';
 import { Icon } from '../index';
 import { scopedClassMarker } from '../helpers/classes';
+import Button from '../button/button';
 
 interface Props {
   visible: boolean;
@@ -81,7 +82,7 @@ const modal = (content: ReactNode, buttons?: Array<ReactElement>, aferClose?: ()
 }
 
 const alert = (content: string) => {
-  const button = [<button onClick={() => close}>OK</button>]
+  const button = [<Button onClick={() => close}>OK</Button>]
   const close = modal(content, button);
 };
 
@@ -95,8 +96,8 @@ const confirm = (content: string, yes?: ()=>void, no?: ()=>void) => {
     no && no();
   };
   const buttons =  [
-    <button onClick={onYes}>yes</button>,
-    <button onClick={onNo}>no</button>
+    <Button onClick={onYes}>yes</Button>,
+    <Button onClick={onNo}>no</Button>
   ]
   const close = modal(content, buttons, no);
 };

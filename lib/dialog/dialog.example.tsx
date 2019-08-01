@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Dialog, { alert, confirm, modal } from './dialog';
+import Button from '../button/button';
 
 export default function() {
   const [visible, setVisible] = useState(false);
@@ -8,18 +9,18 @@ export default function() {
     const close = modal(
       <div>
         <h1>Modal Content</h1>
-        <button onClick={() => close()}>Close</button>
+        <Button onClick={() => close()}>Close</Button>
       </div>
     );
   }
   return (
     <div>
       <div>
-        <button onClick={() => setVisible(!visible)}>Dialog1</button>
+        <Button onClick={() => setVisible(!visible)}>Dialog1</Button>
         <Dialog visible={visible} buttons={
           [
-            <button onClick={() => setVisible(false)}>yes</button>,
-            <button onClick={() => setVisible(false)}>no</button>
+            <Button onClick={() => setVisible(false)}>yes</Button>,
+            <Button onClick={() => setVisible(false)}>no</Button>
           ]
         } onClose={() => setVisible(false)}>
           <strong>hello world</strong>
@@ -27,11 +28,11 @@ export default function() {
       </div>
 
       <div>
-        <button onClick={() => setVisible2(!visible2)}>Dialog2</button>
+        <Button onClick={() => setVisible2(!visible2)}>Dialog2</Button>
         <Dialog visible={visible2} closeOnClickMask={true} buttons={
           [
-            <button onClick={() => setVisible2(false)}>yes</button>,
-            <button onClick={() => setVisible2(false)}>no</button>
+            <Button onClick={() => setVisible2(false)}>yes</Button>,
+            <Button onClick={() => setVisible2(false)}>no</Button>
           ]
         } onClose={() => setVisible2(false)}>
           <strong>hello world</strong>
@@ -39,17 +40,17 @@ export default function() {
       </div>
 
       <div>
-        <button onClick={() => alert('Alert Content')}>Alert</button>
-        <button onClick={() => confirm('Confirm Content', () => {
+        <Button onClick={() => alert('Alert Content')}>Alert</Button>
+        <Button onClick={() => confirm('Confirm Content', () => {
           console.log('yes')
         }, () => {
           console.log('no')
-        })}>Confirm</button>
+        })}>Confirm</Button>
       </div>
 
       <div>
-        <button onClick={openModal}>Modal</button>
-      </div>      
+        <Button onClick={openModal}>Modal</Button>
+      </div>
 
     </div>
   );
