@@ -22,7 +22,7 @@ const FormExample: React.FunctionComponent = () => {
         } else {
           resolve();
         }
-      }, 2000);
+      }, 200);
     })
   }
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {

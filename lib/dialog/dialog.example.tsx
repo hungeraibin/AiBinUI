@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Dialog, { alert, confirm, modal } from './dialog';
 import Button from '../button/button';
+import './dialog.example.scss';
 
 export default function() {
   const [visible, setVisible] = useState(false);
@@ -8,7 +9,7 @@ export default function() {
   const openModal = () => {
     const close = modal(
       <div>
-        <h1>Modal Content</h1>
+        <p>Modal Content</p>
         <Button onClick={() => close()}>Close</Button>
       </div>
     );

@@ -4,13 +4,13 @@
   &-content {
     flex-grow: 1;
   }
-  & & {
+  & > & {
     flex-grow: 1;
     flex-direction: row;
   }
   &-hasAside {
     flex-direction: row;
-    .ab-layout {
+    > .ab-layout {
       flex-direction: column;
     }
   }
